@@ -5,7 +5,7 @@ require 'rake/testtask'
 
 task "test" do
   test = ENV["TEST"]
-  Rake::Task["test::#{test}"].invoke
+  Rake::Task["test:#{test}"].invoke
 end
 
 namespace "test" do
