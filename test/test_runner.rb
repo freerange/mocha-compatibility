@@ -38,12 +38,13 @@ module TestRunner
   end
 
   def assert_passed(test_result)
-    flunk "Test failed unexpectedly with message: #{test_result.failures}" if test_result.failure_count > 0
-    flunk "Test failed unexpectedly with message: #{test_result.errors}" if test_result.error_count > 0
+    flunk "Test failed unexpectedly with errors: #{test_result.errors}" if test_result.error_count > 0
+    flunk "Test failed unexpectedly with failures: #{test_result.failures}" if test_result.failure_count > 0
   end
 
   def assert_failed(test_result)
-    flunk "Test passed unexpectedly" unless test_result.failure_count + test_result.error_count > 0
+    flunk "Test failed with unexpected errors: #{test_result.errors}" if test_result.error_count > 0
+    flunk "Test passed unexpectedly" unless test_result.failure_count > 0
   end
 
 end
