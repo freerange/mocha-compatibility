@@ -18,5 +18,11 @@ matrix:
       gemfile: gemfiles/Gemfile.activesupport.3.2.8.mocha.0.12.3
       env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
     - rvm: 1.8.7
+      gemfile: gemfiles/Gemfile.test-unit.2.5.1.activesupport.3.2.8.mocha.0.12.3
+      env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
+    - rvm: 1.8.7
       gemfile: gemfiles/Gemfile.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
+      env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
+    - rvm: 1.8.7
+      gemfile: gemfiles/Gemfile.test-unit.2.5.1.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
       env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
