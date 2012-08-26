@@ -6,6 +6,9 @@ gemfile:
   - gemfiles/Gemfile.activesupport.3.2.8.mocha.0.12.3
   - gemfiles/Gemfile.test-unit.2.5.1.activesupport.3.2.8.mocha.0.12.3
   - gemfiles/Gemfile.minitest.3.3.0.activesupport.3.2.8.mocha.0.12.3
+  - gemfiles/Gemfile.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
+  - gemfiles/Gemfile.test-unit.2.5.1.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
+  - gemfiles/Gemfile.minitest.3.3.0.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
 env:
   - RAKE_TEST_TASK=test:test_unit MOCHA_OPTIONS=debug
   - RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug

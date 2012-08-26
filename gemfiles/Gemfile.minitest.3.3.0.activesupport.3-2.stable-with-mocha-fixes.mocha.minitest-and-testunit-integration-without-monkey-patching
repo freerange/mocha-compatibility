@@ -1,0 +1,6 @@
+source :rubygems
+
+gem "rake"
+gem "minitest", "3.3.0"
+gem "activesupport", :git => "git://github.com/freerange/rails.git", :branch => "3-2-stable-with-mocha-fixes"
+gem "mocha", :git => "git://github.com/freerange/mocha.git", :branch => "minitest-and-testunit-integration-without-monkey-patching", :require => false
