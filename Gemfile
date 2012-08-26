@@ -1,7 +1,7 @@
 source :rubygems
 
 gem "rake"
-gem "test-unit" if ENV["TEST_UNIT"]
-gem "minitest" if ENV["MINI_TEST"]
+gem "test-unit" if ENV["USE_TEST_UNIT"]
+gem "minitest" if ENV["USE_MINI_TEST"]
 gem "activesupport"
 gem "mocha", :require => false
