@@ -4,7 +4,8 @@ require "bundler/setup"
 require 'rake/testtask'
 
 task "test" do
-  Rake::Task[ENV["TEST"]].invoke
+  test = ENV["TEST"]
+  Rake::Task["test::#{test}"].invoke
 end
 
 namespace "test" do
