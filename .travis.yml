@@ -5,13 +5,12 @@ rvm:
 gemfile:
   - Gemfile
 env:
-  - TEST=test_unit MOCHA_OPTIONS=debug
-  - TEST=test_unit TEST_UNIT=true MOCHA_OPTIONS=debug
-  - TEST=mini_test MOCHA_OPTIONS=debug
-  - TEST=mini_test MINI_TEST=true MOCHA_OPTIONS=debug
+  - RAKE_TEST_TASK=test:test_unit MOCHA_OPTIONS=debug
+  - RAKE_TEST_TASK=test:test_unit USE_TEST_UNIT=true MOCHA_OPTIONS=debug
+  - RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
+  - RAKE_TEST_TASK=test:mini_test USE_MINI_TEST=true MOCHA_OPTIONS=debug
 matrix:
   exclude:
     - rvm: 1.8.7
       gemfile: Gemfile
-      env: TEST=mini_test MOCHA_OPTIONS=debug
-    
+      env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
