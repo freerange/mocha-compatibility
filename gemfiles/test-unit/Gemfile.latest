@@ -1,5 +1,6 @@
 source :rubygems
 
 gem "rake"
+gem "test-unit"
 gem "activesupport"
 gem "mocha", :require => false
