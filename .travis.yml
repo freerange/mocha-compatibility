@@ -2,18 +2,7 @@ script: "rake test"
 rvm:
   - 1.8.7
   - 1.9.3
-gemfile:
-  - gemfiles/Gemfile.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
-  - gemfiles/Gemfile.test-unit.2.5.1.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
-  - gemfiles/Gemfile.minitest.3.3.0.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
 env:
-  - RAKE_TEST_TASK=test:test_unit MOCHA_OPTIONS=debug
-  - RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
-matrix:
-  exclude:
-    - rvm: 1.8.7
-      gemfile: gemfiles/Gemfile.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
-      env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
-    - rvm: 1.8.7
-      gemfile: gemfiles/Gemfile.test-unit.2.5.1.activesupport.3-2.stable-with-mocha-fixes.mocha.minitest-and-testunit-integration-without-monkey-patching
-      env: RAKE_TEST_TASK=test:mini_test MOCHA_OPTIONS=debug
+  - MOCHA_OPTIONS=debug REQUIRE_ACTIVESUPPORT='gem "activesupport", :git => "git://github.com/freerange/rails.git", :branch => "3-2-stable-with-mocha-fixes"' REQUIRE_MOCHA='gem "mocha", :git => "git://github.com/freerange/mocha.git", :branch => "minitest-and-testunit-integration-without-monkey-patching", :require => false'
+  - MOCHA_OPTIONS=debug REQUIRE_TEST_UNIT='gem "test-unit", "2.5.1"' REQUIRE_ACTIVESUPPORT='gem "activesupport", :git => "git://github.com/freerange/rails.git", :branch => "3-2-stable-with-mocha-fixes"' REQUIRE_MOCHA='gem "mocha", :git => "git://github.com/freerange/mocha.git", :branch => "minitest-and-testunit-integration-without-monkey-patching", :require => false'
+  - MOCHA_OPTIONS=debug REQUIRE_MINITEST='gem "minitest", "3.3.0"' REQUIRE_ACTIVESUPPORT='gem "activesupport", :git => "git://github.com/freerange/rails.git", :branch => "3-2-stable-with-mocha-fixes"' REQUIRE_MOCHA='gem "mocha", :git => "git://github.com/freerange/mocha.git", :branch => "minitest-and-testunit-integration-without-monkey-patching", :require => false'

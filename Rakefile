@@ -3,8 +3,25 @@ require "bundler/setup"
 
 require 'rake/testtask'
 
+def execute(command)
+  system(command)
+  unless $?.success?
+    message = [
+      "Executing shell command failed.",
+      "  Command: #{command}",
+      "  Status:  #{$?.exitstatus}"
+    ].join("\n")
+    raise message
+  end
+end
+
+task "default" => "test"
+
 task "test" do
-  Rake::Task[ENV["RAKE_TEST_TASK"]].invoke
+  execute "bundle exec rake test:test_unit"
+  if (RUBY_VERSION >= "1.9") || ENV["REQUIRE_MINITEST"]
+    execute "bundle exec rake test:mini_test"
+  end
 end
 
 namespace "test" do
