@@ -9,6 +9,7 @@ module SharedAdapterTests
       assert true
     end
     assert_passed(test_result)
+    assert_equal 1, test_result.assertion_count
   end
 
   def test_assertion_unsatisfied
@@ -19,6 +20,7 @@ module SharedAdapterTests
     assert_failed(test_result)
     failure = test_result.failures.first
     assert_equal execution_point, ExecutionPoint.new(failure.location)
+    assert_equal 1, test_result.assertion_count
   end
 
   def test_mock_object_unexpected_invocation
@@ -64,6 +66,7 @@ module SharedAdapterTests
       "unsatisfied expectations:",
       "- expected exactly once, not yet invoked: #<Mock:expecting invocation>.expected(any_parameters)"
     ], test_result.failure_message_lines
+    assert_equal 1, test_result.assertion_count
   end
 
   def test_mock_object_unexpected_invocation_in_setup
@@ -102,6 +105,7 @@ module SharedAdapterTests
       "unsatisfied expectations:",
       "- expected exactly once, not yet invoked: #<Mock:expecting invocation>.expected(any_parameters)"
     ], test_result.failure_message_lines
+    assert_equal 2, test_result.assertion_count
   end
 
   def test_mock_object_unexpected_invocation_in_teardown
@@ -152,6 +156,7 @@ module SharedAdapterTests
       "unsatisfied expectations:",
       "- expected exactly once, not yet invoked: #{object.mocha_inspect}.expected(any_parameters)"
     ], test_result.failure_message_lines
+    assert_equal 1, test_result.assertion_count
   end
 
   def test_real_object_expectation_does_not_leak_into_subsequent_test
