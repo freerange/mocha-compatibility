@@ -168,7 +168,7 @@ module SharedAdapterTests
     )
     assert_errored(test_result)
     exception = test_result.errors.first.exception
-    assert_equal execution_point, ExecutionPoint.new(exception.backtrace)
     assert_match %r{undefined method `foo'}, exception.message
+    assert_equal execution_point, ExecutionPoint.new(exception.backtrace)
   end
 end
