@@ -11,13 +11,13 @@ class ExecutionPoint
   end
 
   def file_name
-    return "unknown" unless @backtrace && @backtrace.first
-    /\A(.*?):\d+/.match(@backtrace.first)[1]
+    return "unknown file name" unless @backtrace && @backtrace.first && /\A(.*?):\d+/.match(@backtrace.first)
+    $1
   end
 
   def line_number
-    return "unknown" unless @backtrace && @backtrace.first
-    Integer(/\A.*?:(\d+)/.match(@backtrace.first)[1])
+    return "unknown line number" unless @backtrace && @backtrace.first && /\A.*?:(\d+)/.match(@backtrace.first)
+    $1 && Integer($1)
   end
 
   def ==(other)
