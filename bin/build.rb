@@ -22,4 +22,14 @@ def run_tests(options = {})
   execute("#{prefixes.join(' ')} bundle exec rake")
 end
 
-run_tests(activesupport: "gem 'activesupport', '~> 3.2'", mocha: "gem 'mocha'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes-supporting-only-0.13-onwards'", mocha: "gem 'mocha'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes-supporting-only-0.13-onwards'", mocha: "gem 'mocha'", testunit: "gem 'test-unit'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes-supporting-only-0.13-onwards'", mocha: "gem 'mocha'", minitest: "gem 'minitest'")
+
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha'", testunit: "gem 'test-unit'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha'", minitest: "gem 'minitest'")
+
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha', '0.12.7'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha', '0.12.7'", testunit: "gem 'test-unit'")
+run_tests(activesupport: "gem 'activesupport', git: 'git://github.com/freerange/rails.git', branch: 'mocha-fixes'", mocha: "gem 'mocha', '0.12.7'", minitest: "gem 'minitest'")
